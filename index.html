@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Called to Thrive Entrepreneurship Training Report</title>
+    <title>Called to Thrive Silver Level Entrepreneurship Training Report</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -201,6 +201,14 @@
             border-left: 4px solid var(--success);
         }
         
+        .methodology {
+            background-color: #f0e6ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid var(--purple);
+        }
+        
         .phase-container {
             display: flex;
             flex-wrap: wrap;
@@ -342,6 +350,38 @@
             color: var(--secondary);
         }
         
+        .attendance-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .attendance-table th, .attendance-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .attendance-table th {
+            background-color: var(--light);
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .attendance-table tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .qualified {
+            color: var(--success);
+            font-weight: bold;
+        }
+        
+        .unqualified {
+            color: var(--accent);
+        }
+        
         footer {
             text-align: center;
             padding: 20px;
@@ -459,6 +499,11 @@
             .vs-icon {
                 transform: rotate(90deg);
             }
+            
+            .attendance-table {
+                display: block;
+                overflow-x: auto;
+            }
         }
     </style>
 </head>
@@ -466,7 +511,7 @@
     <header>
         <div class="container">
             <h1>Called to Thrive Entrepreneurship Training Report</h1>
-            <p class="subtitle">Silver Level trainning Analysis & Recommendations</p>
+            <p class="subtitle">Silver Level Program Analysis & Recommendations</p>
             <div class="program-dates">
                 <i class="fas fa-calendar-alt"></i> 12 Sessions from May 24 to October 25
             </div>
@@ -479,7 +524,7 @@
             
             <div class="partnership-banner">
                 <div class="partner-logo hlf-logo">
-                    HigherLife Foundation LLD
+                    HigherLife Foundation
                 </div>
                 <div class="vs-icon">
                     <i class="fas fa-handshake"></i>
@@ -489,17 +534,15 @@
                 </div>
             </div>
             
-            <p>The Called to Thrive Silver Level Entrepreneurship Training program was a joint initiative between <strong>HigherLife Foundation Lifelong Development</strong> in partnership with <strong>Children with Hope</strong>. The program was delivered online to 240 registered participants from Zimbabwe (226) and Lesotho (14).</p>
+            <p>The Called to Thrive Silver Level Entrepreneurship Training was a joint initiative between <strong>HigherLife Foundation Lifelong Development</strong> in partnership with <strong>Children with Hope</strong>. The program was delivered online to 240 registered participants from Zimbabwe (226) and Lesotho (14).</p>
             
             <div class="objective-box">
                 <h3><i class="fas fa-bullseye"></i> Program Objective</h3>
                 <p>The primary objective was to equip young HLF fellows with interest in entrepreneurship - who either have existing businesses or are keen to start - with the essential skills needed to thrive in their entrepreneurial journeys.</p>
             </div>
             
-            <p>While the program successfully attracted a diverse group of young entrepreneurs aged 18-30, several implementation challenges emerged that impacted overall engagement and learning outcomes.</p>
-            
-            <div class="highlight">
-                <p><strong>Key Finding:</strong> Average attendance ranged from 50-60 participants, with peaks of 80 and lows of 34, indicating significant drop-off from the initial registration numbers.</p>
+            <div class="challenge">
+                <p><strong>Critical Finding:</strong> While the program achieved an average of 86 qualified attendees per session, <strong>active engagement was extremely low</strong>. Only approximately 20 participants consistently engaged in verbal discussions, with 30-40 using the chat feature. The majority of qualified attendees remained passive observers despite being present in sessions.</p>
             </div>
             
             <div class="facilitator-card">
@@ -522,19 +565,19 @@
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-number">240</div>
-                    <div class="stat-label">Total Participants</div>
+                    <div class="stat-label">Registered Participants</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">18-30</div>
-                    <div class="stat-label">Age Range</div>
+                    <div class="stat-number">86</div>
+                    <div class="stat-label">Avg Qualified Attendance</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">53%</div>
-                    <div class="stat-label">Female Participation</div>
+                    <div class="stat-number">~20</div>
+                    <div class="stat-label">Verbally Engaged</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">85%</div>
-                    <div class="stat-label">Active Businesses</div>
+                    <div class="stat-number">30-40</div>
+                    <div class="stat-label">Chat Engagement</div>
                 </div>
             </div>
             
@@ -553,102 +596,17 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="grid">
-                <div class="card">
-                    <h3>Educational Background</h3>
-                    <div class="chart-container">
-                        <canvas id="educationChart"></canvas>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <h3>Business Status</h3>
-                    <div class="chart-container">
-                        <canvas id="businessChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="animate delay-2">
-            <h2><i class="fas fa-industry"></i> Primary Business Sectors</h2>
-            <div>
-                <span class="sector-tag">Retail & Sales</span>
-                <span class="sector-tag">Agriculture</span>
-                <span class="sector-tag">Beauty Services</span>
-                <span class="sector-tag">Technology & Digital</span>
-                <span class="sector-tag">Food Services</span>
-            </div>
-            
-            <div class="chart-container">
-                <canvas id="sectorsChart"></canvas>
-            </div>
-        </section>
-        
-        <section class="animate delay-1">
-            <h2><i class="fas fa-book-open"></i> Curriculum Structure</h2>
-            
-            <div class="phase-container">
-                <div class="phase">
-                    <div class="phase-title"><i class="fas fa-search"></i> Phase 1: Identity and Purpose</div>
-                    <p>Understanding personal calling and kingdom purpose, character development, identifying skills and community needs</p>
-                </div>
-                
-                <div class="phase">
-                    <div class="phase-title"><i class="fas fa-tools"></i> Phase 2: Equipping and Development</div>
-                    <p>Personality assessment, career alignment, communication skills, mentorship, overcoming obstacles</p>
-                </div>
-                
-                <div class="phase">
-                    <div class="phase-title"><i class="fas fa-tasks"></i> Phase 3: Project Execution</div>
-                    <p>Service-oriented project development, team collaboration, planning, implementation</p>
-                </div>
-                
-                <div class="phase">
-                    <div class="phase-title"><i class="fas fa-chart-bar"></i> Phase 4: Review</div>
-                    <p>Project evaluation, community impact assessment, consolidating learnings</p>
-                </div>
-            </div>
-        </section>
-        
-        <section class="animate delay-2">
-            <h2><i class="fas fa-calendar-check"></i> Program Timeline</h2>
-            
-            <div class="timeline">
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h3>Program Start</h3>
-                        <p>May 24</p>
-                        <p>First session with full cohort of 240 participants</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <h3>Mid-Program Assessment</h3>
-                        <p>July</p>
-                        <p>Attendance patterns established, averaging 50-60 participants per session</p>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h3>Udemy Licenses Distributed</h3>
-                        <p>September</p>
-                        <p>25 participants received access to technical courses</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <h3>Program Completion</h3>
-                        <p>October 25</p>
-                        <p>Final session after 12 weeks of training</p>
-                    </div>
-                </div>
-            </div>
         </section>
         
         <section class="animate delay-2">
             <h2><i class="fas fa-chart-area"></i> Attendance Analysis</h2>
+            
+            <div class="methodology">
+                <h3><i class="fas fa-clipboard-check"></i> Attendance Methodology</h3>
+                <p><strong>Qualified vs. Unqualified Attendance:</strong> Each figure represents unique attendees after accounting for reconnections. When an individual joined multiple times, only their longest continuous attendance period was considered.</p>
+                <p><strong>Qualified:</strong> Participants who engaged substantially with session content (typically remained for 15+ minutes)</p>
+                <p><strong>Unqualified:</strong> Brief joiners who may have clicked in but did not stay in the session for at least 15 minutes</p>
+            </div>
             
             <div class="stats-grid">
                 <div class="stat-card">
@@ -656,16 +614,16 @@
                     <div class="stat-label">Registered</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">50-60</div>
-                    <div class="stat-label">Average Attendance</div>
+                    <div class="stat-number">86</div>
+                    <div class="stat-label">Avg Qualified</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">80</div>
-                    <div class="stat-label">Peak Attendance</div>
+                    <div class="stat-number">200</div>
+                    <div class="stat-label">Peak Qualified</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">34</div>
-                    <div class="stat-label">Lowest Attendance</div>
+                    <div class="stat-number">33</div>
+                    <div class="stat-label">Lowest Qualified</div>
                 </div>
             </div>
             
@@ -674,7 +632,119 @@
             </div>
             
             <div class="challenge">
-                <p><strong>Challenge:</strong> The significant gap between registration (240) and average attendance (50-60) represents a 75-79% dropout rate in active participation.</p>
+                <h3><i class="fas fa-exclamation-triangle"></i> Critical Engagement Challenge</h3>
+                <p><strong>Severe Participation Gap:</strong> Despite having 86 qualified attendees on average, only approximately 20 participants (23%) actively engaged in verbal discussions. This represents a significant disconnect between attendance and active participation.</p>
+                
+                <p><strong>Breakout Room Challenges:</strong> Many breakout rooms experienced limited verbal participation, with participants either:</p>
+                <ul>
+                    <li>Keeping cameras off and microphones muted</li>
+                    <li>Not responding to facilitator prompts verbally</li>
+                    <li>Relying on the core 20 participants to carry out discussions</li>
+                </ul>
+                
+                <p><strong>Chat vs Verbal Participation:</strong> While 30-40 participants used chat features, this still represents less than half of qualified attendees actively contributing in any format.</p>
+            </div>
+            
+            <table class="attendance-table">
+                <thead>
+                    <tr>
+                        <th>Session Date</th>
+                        <th>Qualified Attendees</th>
+                        <th>Unqualified Attendees</th>
+                        <th>Total Connections</th>
+                        <th>Engagement Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>May 24</td>
+                        <td class="qualified">200</td>
+                        <td class="unqualified">92</td>
+                        <td>292</td>
+                        <td>68%</td>
+                    </tr>
+                    <tr>
+                        <td>June 7</td>
+                        <td class="qualified">84</td>
+                        <td class="unqualified">56</td>
+                        <td>140</td>
+                        <td>60%</td>
+                    </tr>
+                    <tr>
+                        <td>June 21</td>
+                        <td class="qualified">126</td>
+                        <td class="unqualified">44</td>
+                        <td>170</td>
+                        <td>74%</td>
+                    </tr>
+                    <tr>
+                        <td>July 5</td>
+                        <td class="qualified">79</td>
+                        <td class="unqualified">45</td>
+                        <td>124</td>
+                        <td>64%</td>
+                    </tr>
+                    <tr>
+                        <td>July 19</td>
+                        <td class="qualified">53</td>
+                        <td class="unqualified">21</td>
+                        <td>74</td>
+                        <td>72%</td>
+                    </tr>
+                    <tr>
+                        <td>August 2</td>
+                        <td class="qualified">33</td>
+                        <td class="unqualified">19</td>
+                        <td>52</td>
+                        <td>63%</td>
+                    </tr>
+                    <tr>
+                        <td>August 16</td>
+                        <td class="qualified">62</td>
+                        <td class="unqualified">30</td>
+                        <td>92</td>
+                        <td>67%</td>
+                    </tr>
+                    <tr>
+                        <td>August 30</td>
+                        <td class="qualified">67</td>
+                        <td class="unqualified">21</td>
+                        <td>88</td>
+                        <td>76%</td>
+                    </tr>
+                    <tr>
+                        <td>September 13</td>
+                        <td class="qualified">91</td>
+                        <td class="unqualified">57</td>
+                        <td>148</td>
+                        <td>61%</td>
+                    </tr>
+                    <tr>
+                        <td>September 27</td>
+                        <td class="qualified">68</td>
+                        <td class="unqualified">32</td>
+                        <td>100</td>
+                        <td>68%</td>
+                    </tr>
+                    <tr>
+                        <td>October 11</td>
+                        <td class="qualified">49</td>
+                        <td class="unqualified">31</td>
+                        <td>80</td>
+                        <td>61%</td>
+                    </tr>
+                    <tr>
+                        <td>October 25</td>
+                        <td class="qualified">83</td>
+                        <td class="unqualified">31</td>
+                        <td>114</td>
+                        <td>73%</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="highlight">
+                <p><strong>Note:</strong> Engagement rates above reflect session attendance duration only. Verbal participation rates were significantly lower, with only ~20 core participants consistently engaging in discussions across all sessions.</p>
             </div>
         </section>
         
@@ -682,23 +752,23 @@
             <h2><i class="fas fa-exclamation-triangle"></i> Critical Challenges Identified</h2>
             
             <div class="challenge">
-                <h3>1. Low Participation and Engagement</h3>
-                <p>Participants were reluctant to engage in small group discussions, with limited peer-to-peer interaction reducing collaborative learning opportunities.</p>
+                <h3>1. Severe Verbal Engagement Gap</h3>
+                <p><strong>Only 23% of qualified attendees participated verbally</strong> in discussions or breakout rooms. The majority remained silent observers despite being present throughout sessions.</p>
             </div>
             
             <div class="challenge">
-                <h3>2. Group Size Management</h3>
-                <p>The cohort of 240 participants was too large for effective online delivery, making meaningful discussions difficult and reducing personalized attention.</p>
+                <h3>2. Breakout Room Silence</h3>
+                <p>Multiple breakout rooms experienced limited verbal participation, with heavy reliance on the core 20 engaged participants to carry discussions.</p>
             </div>
             
             <div class="challenge">
-                <h3>3. Curriculum Limitations</h3>
-                <p>The Called to Thrive material, while spiritually grounded, lacked practical entrepreneurial application with minimal technical skills training.</p>
+                <h3>3. Small Core Engagement Group</h3>
+                <p>Only approximately 20 participants formed the consistently engaged core group, creating an imbalance where a small minority carried discussion while the majority remained silent.</p>
             </div>
             
             <div class="challenge">
-                <h3>4. Session Interactivity</h3>
-                <p>Sessions were primarily lecture-based with insufficient use of interactive tools, polls, quizzes, or hands-on activities.</p>
+                <h3>4. Passive Learning Culture</h3>
+                <p>The program struggled to transition participants from passive listeners to active collaborators, limiting the potential for peer learning and practical skill development.</p>
             </div>
         </section>
         
@@ -706,18 +776,23 @@
             <h2><i class="fas fa-check-circle"></i> Positive Outcomes</h2>
             
             <div class="positive">
+                <h3>Dedicated Core Group</h3>
+                <p>Despite engagement challenges, a core group of approximately 20 participants demonstrated consistent commitment and active verbal participation throughout the program.</p>
+            </div>
+            
+            <div class="positive">
+                <h3>Chat Engagement</h3>
+                <p>30-40 participants regularly used chat features to ask questions and contribute, showing some level of engagement even without verbal participation.</p>
+            </div>
+            
+            <div class="positive">
                 <h3>Udemy License Distribution</h3>
-                <p>25 participants received Udemy licenses for three key courses: Entrepreneurship fundamentals, Digital marketing, and Content creation.</p>
+                <p>25 participants received Udemy licenses for technical courses, providing valuable supplementary learning resources.</p>
             </div>
             
             <div class="positive">
-                <h3>Diverse Business Representation</h3>
-                <p>The program successfully attracted entrepreneurs across five major sectors, creating potential for cross-sector learning and collaboration.</p>
-            </div>
-            
-            <div class="positive">
-                <h3>Gender Balance</h3>
-                <p>With 53% female participation, the program demonstrated strong appeal to women entrepreneurs, crucial for inclusive economic development.</p>
+                <h3>Strong Attendance Commitment</h3>
+                <p>86 average qualified attendees indicates significant interest and commitment to the program's content and schedule.</p>
             </div>
         </section>
         
@@ -755,30 +830,30 @@
             
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number">>70%</div>
-                    <div class="stat-label">Attendance Retention</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">>80%</div>
-                    <div class="stat-label">Breakout Participation</div>
+                    <div class="stat-number">>60%</div>
+                    <div class="stat-label">Verbal Participation Rate</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">100%</div>
-                    <div class="stat-label">Assignment Completion</div>
+                    <div class="stat-label">Breakout Room Contribution</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">>50</div>
-                    <div class="stat-label">Net Promoter Score</div>
+                    <div class="stat-number">< 10%</div>
+                    <div class="stat-label">Silent Participants</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">>40</div>
+                    <div class="stat-label">Core Engaged Group</div>
                 </div>
             </div>
         </section>
         
         <section class="animate delay-1">
             <h2><i class="fas fa-flag-checkered"></i> Conclusion</h2>
-            <p>The Called to Thrive Entrepreneurship Training program successfully attracted a diverse and ambitious group of young entrepreneurs across multiple sectors. However, structural challenges—including an oversized cohort, insufficient interactivity, and a theory-heavy curriculum lacking technical depth—limited participant engagement and practical skill development.</p>
+            <p>The Called to Thrive Entrepreneurship Training program successfully attracted significant interest with an average of 86 qualified attendees per session. However, the program faced a critical challenge in translating attendance into active engagement, with only approximately 20 participants consistently contributing to verbal discussions and 30-40 using chat features.</p>
             
             <div class="highlight">
-                <p><strong>Key Takeaway:</strong> Future iterations should focus on smaller, more interactive cohorts with a redesigned curriculum that blends values-based entrepreneurship education with actionable technical skills, ensuring participants leave not just inspired, but equipped to grow their businesses.</p>
+                <p><strong>Key Takeaway:</strong> Future program success depends on fundamentally redesigning the engagement approach to transform passive attendees into active participants. The focus must shift from measuring attendance to measuring meaningful participation, with specific strategies to address the verbal participation gap that limited collaborative learning in this cohort.</p>
             </div>
         </section>
     </div>
@@ -838,94 +913,25 @@
                 }
             });
             
-            // Education Chart
-            const educationCtx = document.getElementById('educationChart').getContext('2d');
-            new Chart(educationCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['University', 'Polytechnic/VTC', 'Graduates', 'In School'],
-                    datasets: [{
-                        label: 'Number of Participants',
-                        data: [184, 56, 11, 229],
-                        backgroundColor: '#3498db',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
-            
-            // Business Status Chart
-            const businessCtx = document.getElementById('businessChart').getContext('2d');
-            new Chart(businessCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Active Businesses (85%)', 'Pre-startup Stage (15%)'],
-                    datasets: [{
-                        data: [204, 36],
-                        backgroundColor: ['#2ecc71', '#f39c12'],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom'
-                        }
-                    }
-                }
-            });
-            
-            // Sectors Chart
-            const sectorsCtx = document.getElementById('sectorsChart').getContext('2d');
-            new Chart(sectorsCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['Retail & Sales', 'Agriculture', 'Beauty Services', 'Technology & Digital', 'Food Services'],
-                    datasets: [{
-                        label: 'Sector Representation',
-                        data: [45, 25, 20, 15, 30], // Approximate values based on description
-                        backgroundColor: [
-                            '#3498db',
-                            '#2ecc71',
-                            '#e74c3c',
-                            '#9b59b6',
-                            '#f39c12'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
-            
             // Attendance Chart
             const attendanceCtx = document.getElementById('attendanceChart').getContext('2d');
             new Chart(attendanceCtx, {
                 type: 'line',
                 data: {
-                    labels: ['Registration', 'Average', 'Peak', 'Lowest'],
+                    labels: ['May 24', 'June 7', 'June 21', 'July 5', 'July 19', 'Aug 2', 'Aug 16', 'Aug 30', 'Sep 13', 'Sep 27', 'Oct 11', 'Oct 25'],
                     datasets: [{
-                        label: 'Attendance Numbers',
-                        data: [240, 55, 80, 34],
+                        label: 'Total Connections',
+                        data: [292, 140, 170, 124, 74, 52, 92, 88, 148, 100, 80, 114],
                         backgroundColor: 'rgba(52, 152, 219, 0.2)',
                         borderColor: '#3498db',
+                        borderWidth: 2,
+                        tension: 0.3,
+                        fill: true
+                    }, {
+                        label: 'Qualified Attendees',
+                        data: [200, 84, 126, 79, 53, 33, 62, 67, 91, 68, 49, 83],
+                        backgroundColor: 'rgba(46, 204, 113, 0.2)',
+                        borderColor: '#2ecc71',
                         borderWidth: 2,
                         tension: 0.3,
                         fill: true
